@@ -1,0 +1,73 @@
+<?php echo $this->doctype() ?>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Infinity CMS - Admin - <?php echo Zend_Controller_Front::getInstance()->getRequest()->getActionName(); ?></title>
+	<meta name="keywords" content="infinity cms, infinity, Paweł Tobis, Tobis,CMS"/>
+	<meta name="description" content="Infinity CMS - system zarządzania treścią"/>
+
+	<meta  name="generator" content="INFINITY ver.2.0 - Web At Net"/>
+	<meta name="author" content="Paweł Tobis"/>
+
+	<meta name="robots" content="noindex,nofollow"/>
+	<!-- 
+		==CKEditor 4.0.0==
+		==================
+		
+		CKEditor - The text editor for Internet - http://ckeditor.com
+		Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
+
+	-->
+		<script src="<?php echo $this->baseUrl("ckeditor/ckeditor.js") ?>" type="text/javascript"></script>
+		<script src="<?php echo $this->baseUrl("ckeditor/_samples/sample.js") ?>" type="text/javascript"></script>
+		<link href="<?php echo $this->baseUrl("ckeditor/_samples/sample.css") ?>" rel="stylesheet" type="text/css" />
+	<!--
+		==END==
+		=======
+	-->
+
+	<!--
+		==JQuery==
+		==========
+	-->
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.8.2.js" type="text/javascript"></script>
+    	<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js" type="text/javascript"></script>
+    	<script src="<?php echo $this->baseUrl('js/sortList.js') ?>" type="text/javascript"></script>
+    <!--
+		==END==
+		=======
+	-->
+
+		<link href="<?php echo $this->baseUrl("css/cms-admin/style.css"); ?>" rel="stylesheet" type="text/css"/>
+		<link href="<?php echo $this->baseUrl("css/cms-admin/icons.css"); ?>" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+	<div id="mainContainer">
+		<div id="menuLeftContainer">
+			<div id="logoContainer">
+				<a href="<?php echo $this->url(array('controller'=>'cms-admin'),'default',true) ?>">
+					<img src="<?php echo $this->baseUrl('image/cms-admin/logo.png') ?>" id="imgLogo" alt="Infinity CMS" />
+				</a>
+			</div>
+			<?php
+				$auth = Zend_Auth::getInstance();
+			    if ($auth->hasIdentity()) {
+			    	echo '<p style="text-align:center"> Użytkownik: <strong>'.$auth->getIdentity().'</strong> ';
+			    	echo '<a href="'.$this->url(array('controller'=>'auth','action'=>'logout'),'default',true).'">Wyloguj</a></p>';
+			    	echo '<h2 class="menuH2">Infinity CMS:</h2>';
+					echo $this->menuadmin();
+					echo $this->footer();
+			    }else{
+			    	echo '<h1 style="text-align:center">System zarządzania treścią</h1>';
+			    	echo '<div style="text-align:center"><a href="/">{Strona Główną}</a> : <a href="#">{Zapomniałem hasła}</a></div>';
+			    }
+		    ?>
+		</div>
+		<div id="menuRightContrainer">
+			<?php echo $this->layout()->content; ?>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<h1>Edytuj
+	<?php if ($this->section == 'category')	echo 'KATEGORIE'; else echo 'ARTYKUŁ'; ?>: 
+	<br /><br />
+</h1>
+	<p class="title_Edit"><?php echo $this->object['name_'.$this->section] ?></p>
+	<?php echo $this->form ?>
+	<p><br /></p>
+	<?php echo $this->formDel ?>
+
+<div class="backStyle">
+	<ul>
+		<li class="btnBack" id="btnBack">
+			<a href="<?php echo $this->url(array('action'=>'list','controller'=>'cms-admin','section'=>$this->section),'default',true) ?>"><span class="btnBackSpan">&nbsp;</span></a>
+		</li>
+		<li class="txtBack">
+			<span>Powrót</span>
+		</li>
+	</ul>
+</div>

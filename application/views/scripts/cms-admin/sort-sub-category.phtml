@@ -1,0 +1,57 @@
+<h1>Lista podkategorii w <?php echo $this->nameSortedCategory['name_category'] ?>:</h1>
+<hr />
+<div id="cat_sort_info">
+	<ul id="sortable" class="backgroundSortable">
+		<?php
+			foreach ($this->listCategory as $categories) {
+				?><li id="set-<?php echo $categories['id_category'] ?>" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><?php echo $categories['name_category'] ?> - <a href="<?php echo $this->url(array('action'=>'sort-article','controller'=>'cms-admin','id'=>$this->nameSortedCategory['id_category'],'sub'=>$categories['id_category']),'default',true) ?>"> rozwiń</a>
+					<span class="actions"><a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'edit','section'=>'category','id'=>$categories['id_category']),'default',true) ?>">Edytuj</a><a href="<?php echo $this->url(array('controller'=>'index','action'=>'category','id_category'=>$categories['id_category']),'default',true) ?>">Podgląd</a></span>
+				</li><?php
+			}
+		?>
+	</ul>
+</div>
+
+<script type="text/javascript">
+$('#sortable').sortable({
+			update : function () { 
+				var vieworder = $('#sortable').sortable('serialize'); 
+				$('#cat_sort_info').load('/cms-admin/save-sorted/'+vieworder);
+				$('#cat_sort_info').effect("pulsate", { times:3 }, 500);
+			} 
+		});
+</script>
+
+<h2 class="sortH2">Lista artykułów w kategorii <?php echo $this->nameSortedCategory['name_category'] ?>:</h2>
+<hr />
+<div id="cat_sort_info_help">
+	<ul id="sortableHelp" class="backgroundSortable">
+		<?php
+			foreach ($this->listArticle as $articles) {
+				?><li id="set-<?php echo $articles['id_article'] ?>" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><?php echo $articles['name_article'] ?>
+					<span class="actions"><a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'edit','section'=>'article','id'=>$articles['id_article']),'default',true) ?>">Edytuj</a><a href="<?php echo $this->url(array('controller'=>'index','action'=>'articles','id_category'=>$categories['id_category'],'id_article'=>$articles['id_article']),'default',true) ?>">Podgląd</a></span>
+				</li><?php
+			}
+		?>
+	</ul>
+</div>
+
+<script type="text/javascript">
+$('#sortableHelp').sortable({
+			update : function () { 
+				var vieworder = $('#sortableHelp').sortable('serialize'); 
+				$('#cat_sort_info_help').load('/cms-admin/save-sorted-article/'+vieworder);
+				$('#cat_sort_info_help').effect("pulsate", { times:3 }, 500);
+			} 
+		});
+</script>
+<div class="backStyle">
+	<ul>
+		<li class="btnBack" id="btnBack">
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin'),'default',true) ?>"><span class="btnBackSpan">&nbsp;</span></a>
+		</li>
+		<li class="txtBack">
+			<span>Powrót</span>
+		</li>
+	</ul>
+</div>

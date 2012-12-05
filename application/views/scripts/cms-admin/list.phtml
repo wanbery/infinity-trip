@@ -1,0 +1,162 @@
+<div class="containerTitleSubPage" style="margin-bottom:0px;">
+	<div class="containerTitleSubPageLeft">
+		<h1>Lista 
+			<?php 
+				switch ($this->section)
+				{
+					case 'category':
+						echo 'KATEGORII';
+						$sectionBtn = 'kategorie';
+						break;
+					case 'article':
+						echo 'ARTYKUŁÓW';
+						$sectionBtn = 'artykuł';
+						break;
+				}
+			?>
+			:
+		</h1>
+	</div>
+	<div class="containerTitleSubPageRight">
+		<div class="addStyle">
+			<ul>
+				<li class="txtAdd">
+					<span>Dodaj <?php echo $sectionBtn; ?></span>
+				</li>
+				<li class="btnAdd" id="btnAddID">
+					<a href="<?php echo $this->url(array('action'=>'create'),'default') ?>"><span class="btnAddSpan">&nbsp;</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="containerTitleSubPageRight">
+		<div class="addStyle">
+			<ul>
+				<li class="txtAdd">
+					<span>Ustawienia: <?php echo $sectionBtn; ?></span>
+				</li>
+				<li class="btnSettings" id="btnSettingsID">
+					<a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'settings-'.$this->section),'default',true) ?>"><span class="btnSettingsSpan">&nbsp;</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>	
+</div>
+<hr/>
+<br />
+<?php 
+switch ($this->section) {
+	case 'category':
+		{
+			?>
+				<table id="listTable">
+					<thead>
+						<tr class="listTh">
+							<th>Lp.</th>
+							<th>Tytuł</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php
+						$count = 0;
+						$result = 1;
+						$ordinal = 1;
+						foreach ($this->data as $article) {
+							if ($count == $result) {
+								echo '<tr class="listTr">';
+									echo '<td class="tablePadding">'.$ordinal.'</td>';
+									$result= $result+2;
+									echo '<td class="tablePadding"><a href="'.$this->url(array('action'=>'edit','id'=>$article['id_'.$this->section]),'default').'">'.$article['name_'.$this->section].'</a></td>';
+									if ($article['visible_'.$this->section] == 'false') {
+										echo '<td class="tablePadding">niewidoczny</td>';
+									}else echo '<td class="tablePadding"> </td>';
+								echo '</tr>';
+							}else{
+								echo '<tr>';
+									echo '<td class="tablePadding">'.$ordinal.'</td>';
+									echo '<td class="tablePadding"><a href="'.$this->url(array('action'=>'edit','id'=>$article['id_'.$this->section]),'default').'">'.$article['name_'.$this->section].'</a></td>';
+									if ($article['visible_'.$this->section] == 'false') {
+										echo '<td class="tablePadding">niewidoczny</td>';
+									}else echo '<td class="tablePadding"> </td>';
+								echo '</tr>';
+							}
+							$count++;
+							$ordinal++;
+						}
+					?>
+					</tbody>
+				</table>
+			<?php
+		}
+		break;
+	
+	case 'article':
+		{
+			?>
+				<table id="listTable">
+					<thead>
+						<tr class="listTh">
+							<th>Lp.</th>
+							<th>Tytuł</th>
+							<th>Kategoria</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php
+						$count = 0;
+						$ordinal = 1;
+						$result = 1;
+						foreach ($this->data as $article) {
+							if ($count == $result) {
+								echo '<tr class="listTr">';
+									$result= $result+2;
+									echo '<td class="tablePadding">'.$ordinal.'</td>';
+									echo '<td class="tablePadding"><a href="'.$this->url(array('action'=>'edit','id'=>$article['id_'.$this->section]),'default').'">'.$article['name_'.$this->section].'</a></td>';
+									foreach ($this->categoryName as $category) {
+										if ($category['id_category'] == $article['id_category']) {
+											echo '<td class="tablePadding">'.$category['name_category'].'</td>';
+										}
+									}
+									if ($article['visible_'.$this->section] == 'false') {
+										echo '<td class="tablePadding">niewidoczny</td>';
+									}else echo '<td class="tablePadding"> </td>';
+								echo '</tr>';
+							}else{
+								echo '<tr>';
+									echo '<td class="tablePadding">'.$ordinal.'</td>';
+									echo '<td class="tablePadding"><a href="'.$this->url(array('action'=>'edit','id'=>$article['id_'.$this->section]),'default').'">'.$article['name_'.$this->section].'</a></td>';
+									foreach ($this->categoryName as $category) {
+										if ($category['id_category'] == $article['id_category']) {
+											echo '<td class="tablePadding">'.$category['name_category'].'</td>';
+										}
+									}
+									if ($article['visible_'.$this->section] == 'false') {
+										echo '<td class="tablePadding">niewidoczny</td>';
+									}else echo '<td class="tablePadding"> </td>';
+								echo '</tr>';
+							}
+							$count++;
+							$ordinal++;
+						}
+					?>
+					</tbody>
+				</table>
+			<?php
+		}
+		break;
+}
+?>
+
+	
+<div class="backStyle">
+	<ul>
+		<li class="btnBack" id="btnBack">
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin'),'default',true) ?>"><span class="btnBackSpan">&nbsp;</span></a>
+		</li>
+		<li class="txtBack">
+			<span>Powrót</span>
+		</li>
+	</ul>
+</div>

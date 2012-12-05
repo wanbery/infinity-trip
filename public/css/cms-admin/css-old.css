@@ -1,0 +1,75 @@
+#optionsContainer
+{
+	background-color: #EAE4D6;
+	width:443px;
+	height: 75px;
+}
+
+.setInLineIcons
+{
+	display: inline-block;
+	position:absolute;
+	text-align: center;
+	width:59px;
+	height:70px;
+	border: 1px solid #EAE4D6;
+}
+
+.setInLineIcons:hover
+{
+	border: 1px solid #0398ca;
+}
+
+#start
+{
+	background: url(/image/cms-admin/icons_main_site.png);
+	width: 59px; 
+	height: 45px; 
+	position: absolute;
+	background-position: -121.5px -0px; 
+}
+
+#mainOptions
+{
+	background: url(/image/cms-admin/icons_main_site.png);
+	width: 59px; 
+	height: 45px;
+	position: absolute;
+	background-position: -419.5px -0px; 
+}
+
+#userOptions
+{
+	background: url(/image/cms-admin/icons_main_site.png);
+	width: 59px; 
+	height: 45px; 
+	position: absolute;
+	background-position: -586.5px -0px;
+}
+
+#category
+{	
+	background: url(/image/cms-admin/icons_main_site.png);
+	width: 59px; 
+	height: 45px; 
+	position: absolute;
+	background-position: -537.5px -0px;
+}
+
+#article
+{
+	background: url(/image/cms-admin/icons_main_site.png);
+	width: 59px; 
+	height: 45px; 
+	position: absolute;
+	background-position: -298.5px -0px; 
+}
+
+#newsletter
+{
+	background: url(/image/cms-admin/icons_main_site.png);
+	width: 59px; 
+	height: 45px; 
+	position: absolute;
+	background-position: -58.5px -0px; 
+}

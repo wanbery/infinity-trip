@@ -1,0 +1,34 @@
+<h1>Zarządzanie listą kategorii:</h1>
+<hr />
+<div id="cat_sort_info">
+	<ul id="sortable" class="backgroundSortable">
+		<?php
+			foreach ($this->listCategory as $categories) {
+				?><li id="set-<?php echo $categories['id_category'] ?>" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><?php echo $categories['name_category'] ?> - <a href="<?php echo $this->url(array('action'=>'sort-sub-category','controller'=>'cms-admin','id'=>$categories['id_category']),'default',true) ?>"> rozwiń</a>
+					<span class="actions"><a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'edit','section'=>'category','id'=>$categories['id_category']),'default',true) ?>">Edytuj</a><a href="#">Podgląd</a></span>
+				</li><?php
+			}
+		?>
+	</ul>
+</div>
+
+<script type="text/javascript">
+$('#sortable').sortable({
+			update : function () { 
+				var vieworder = $('#sortable').sortable('serialize'); 
+				$('#cat_sort_info').load('/cms-admin/save-sorted/'+vieworder);
+				$('#cat_sort_info').effect("pulsate", { times:3 }, 500);
+			} 
+		});
+</script>
+
+<div class="backStyle">
+	<ul>
+		<li class="btnBack" id="btnBack">
+			<a href="javascript: history.back()"><span class="btnBackSpan">&nbsp;</span></a>
+		</li>
+		<li class="txtBack">
+			<span>Powrót</span>
+		</li>
+	</ul>
+</div>

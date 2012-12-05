@@ -1,0 +1,38 @@
+<h1>Zarządzanie ustawieniami:</h1>
+<hr/>
+<p>
+	<strong>Nazwa strony</strong>
+</p>
+	<?php echo $this->siteNameForm ?>
+<hr/>
+<p>
+	<strong>Pasek boczny:</strong>
+</p>
+	<?php echo $this->sidebarForm ?>
+<hr />
+<p>
+	<strong>Stopka:</strong>
+</p>
+	<?php echo $this->footForm ?>
+<hr/>
+<p>
+	<strong>Dodawanie nowych użytkowników:</strong>
+</p>
+	<?php echo $this->userForm ?>
+<hr/>
+<p>
+	<strong>Zmiana hasła użytkownika:</strong>
+</p>
+	<?php echo $this->passChangeForm ?>
+<hr/>
+
+<div class="backStyle">
+	<ul>
+		<li class="btnBack" id="btnBack">
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin'),'default',true) ?>"><span class="btnBackSpan">&nbsp;</span></a>
+		</li>
+		<li class="txtBack">
+			<span>Powrót</span>
+		</li>
+	</ul>
+</div>

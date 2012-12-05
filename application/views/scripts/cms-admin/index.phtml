@@ -1,0 +1,72 @@
+<h1>Zarządzanie listą kategorii:</h1>
+<hr />
+<div id="cat_sort_info">
+	<ul id="sortable" class="backgroundSortable">
+		<?php
+			foreach ($this->listCategory as $categories) {
+				?><li id="set-<?php echo $categories['id_category'] ?>" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><?php echo $categories['name_category'] ?> - <a href="<?php echo $this->url(array('action'=>'sort-sub-category','controller'=>'cms-admin','id'=>$categories['id_category']),'default',true) ?>"> rozwiń</a>
+					<span class="actions"><a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'edit','section'=>'category','id'=>$categories['id_category']),'default',true) ?>">Edytuj</a><a href="<?php echo $this->url(array('controller'=>'index','action'=>'category','id_category'=>$categories['id_category']),'default',true) ?>">Podgląd</a></span>
+				</li><?php
+			}
+		?>
+	</ul>
+</div>
+
+<script type="text/javascript">
+$('#sortable').sortable({
+			update : function () { 
+				var vieworder = $('#sortable').sortable('serialize'); 
+				$('#cat_sort_info').load('/cms-admin/save-sorted/'+vieworder);
+				$('#cat_sort_info').effect("pulsate", { times:3 }, 500);
+			} 
+		});
+</script>
+<h2 class="sortH2">Opcje:</h2>
+<hr/>
+<div class="cmsMenu">
+	<ul>
+		<li>
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'options'),'default',true) ?>">
+				<span class="startOptions">&nbsp;</span>
+				<span class="startOptionsS">&nbsp;&nbsp;&nbsp;Ustawienia&nbsp;&nbsp;&nbsp;</span>
+			</a>
+		</li>
+		<li>
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'user'),'default',true) ?>">
+				<span class="startUser">&nbsp;</span>
+				<span class="startUserS">&nbsp;&nbsp;&nbsp;Użytkownik&nbsp;&nbsp;&nbsp;</span>
+			</a>
+		</li>
+		<li>
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'list','section'=>'category'),'default',true) ?>">
+				<span class="startCategory">&nbsp;</span>
+				<span class="startCategoryS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kategorie&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			</a>
+		</li>
+		<li>
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'list','section'=>'article'),'default',true) ?>">
+				<span class="startArticle">&nbsp;</span>
+				<span class="startArticleS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Artykuły&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			</a>
+		</li>
+		<li>
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'list-product'),'default',true) ?>">
+				<span class="startProduct">&nbsp;</span>
+				<span class="startProductS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Produkty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			</a>
+		</li>
+		<li>
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'list-newsletter'),'default',true) ?>">
+				<span class="startNewsletter">&nbsp;</span>
+				<span class="startNewsletterS">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Biuletyn&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			</a>
+		</li>
+		<li>
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'list-sidebar'),'default',true) ?>">
+				<span class="startSideBar">&nbsp;</span>
+				<span class="startSideBarS">Pasek boczny</span>
+			</a>
+		</li>
+	</ul>
+</div>
+<hr/>

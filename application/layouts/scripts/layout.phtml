@@ -1,0 +1,46 @@
+<?php echo $this->doctype() ?>
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>CMS - <?php echo $this->category['title_meta_category']; echo $this->article['title_meta_article'] ?></title>
+	<meta name="keywords" content="<?php echo $this->category['keywords_meta_category']; echo $this->article['keywords_meta_article'] ?>"/>
+	<meta name="description" content="<?php echo $this->category['description_meta_category']; echo $this->article['description_meta_article'] ?>"/>
+
+	<meta  name="generator" content="INFINITY ver.2.0 - Web At Net"/>
+	<meta name="author" content="Paweł Tobis"/>
+	
+	<link href="<?php echo $this->baseUrl("css/style.css"); ?>" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+	
+	<div class="mainContainer">
+		<div class="bodyLine"></div>
+		<div class="logoContainer">
+			<a href="/"><span class="imgLogo"></span></a>
+			<?php echo $this->sitename() ?>			
+		</div>
+		<div class="searchContainer">
+			<?php echo $this->formSearch ?>
+		</div>
+		<div class="centerContainer">
+			<div class="menuContainer">
+				<?php echo $this->menu() ?>
+				<div class="sidebarContainer">
+					<?php echo $this->sidebar() ?>
+				</div>
+			</div>
+			<div class="contentContainer">
+				<?php echo $this->layout()->content; ?>
+			</div>
+			<div class="underMenuContainer"></div>
+		</div>
+		
+		<div class="footContainer">
+			<?php echo $this->footer() ?>
+		</div>
+
+	</div>
+</body>
+</html>

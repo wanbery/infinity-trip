@@ -1,0 +1,92 @@
+<div class="containerTitleSubPage">
+	<div class="containerTitleSubPageLeft">
+		<h1>Lista PRODUKTÓW:</h1>
+	</div>
+	<div class="containerTitleSubPageRight">
+		<div class="addStyle">
+			<ul>
+				<li class="txtAdd">
+					<span>Dodaj produkt</span>
+				</li>
+				<li class="btnAdd" id="btnAddID">
+					<a href="<?php echo $this->url(array('action'=>'new-product'),'default') ?>"><span class="btnAddSpan">&nbsp;</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="containerTitleSubPageRight">
+		<div class="addStyle">
+			<ul>
+				<li class="txtAdd">
+					<span>Ustawienia: produkt</span>
+				</li>
+				<li class="btnSettings" id="btnSettingsID">
+					<a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'settings-product'),'default',true) ?>"><span class="btnAddSpan">&nbsp;</span></a>
+				</li>
+			</ul>
+		</div>
+	</div>	
+</div>
+<hr/>
+<br />
+
+<table id="listTable">
+	<thead>
+		<tr class="listTh">
+			<th>Lp.</th>
+			<th>Tytuł</th>
+			<th>Kategorie</th>
+			<th>Status</th>
+		</tr>
+	</thead>
+	<tbody>
+<?php
+	$count = 0;
+	$result = 1;
+	$ordinal = 1;
+	foreach ($this->data as $products) {
+		if ($count == $result) {
+			$result= $result+2;
+			?>
+		<tr class="listTr">
+			<td class="tablePadding"><?php echo $ordinal ?></td>
+			<td class="tablePadding"><a href="<?php echo $this->url(array('action'=>'product','id'=>$products['id_product']),'default') ?>"><?php echo $products['name_product']; ?></a></td>
+			<td class="tablePadding">Kategoriaaa</td>
+			<td class="tablePadding">
+				<?php if ($products['visible_product'] == 'false') {
+					echo 'Niewidoczny';
+				}else echo '<strong>Widoczny</strong>'; ?>
+			</td>
+		</tr>
+			<?php
+		}else{
+	?>
+		<tr>
+			<td class="tablePadding"><?php echo $ordinal ?></td>
+			<td class="tablePadding"><a href="<?php echo $this->url(array('action'=>'product','id'=>$products['id_product']),'default') ?>"><?php echo $products['name_product']; ?></a></td>
+			<td class="tablePadding">Kategoriaaa</td>
+			<td class="tablePadding">
+				<?php if ($products['visible_product'] == 'false') {
+					echo 'Niewidoczny';
+				}else echo '<strong>Widoczny</strong>'; ?>
+			</td>
+		</tr>
+<?php
+		}
+		$count++;
+		$ordinal++;
+	}
+?>
+	</tbody>
+</table>
+	
+<div class="backStyle">
+	<ul>
+		<li class="btnBack" id="btnBack">
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin'),'default',true) ?>"><span class="btnBackSpan">&nbsp;</span></a>
+		</li>
+		<li class="txtBack">
+			<span>Powrót</span>
+		</li>
+	</ul>
+</div>

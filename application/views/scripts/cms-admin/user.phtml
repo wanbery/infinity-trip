@@ -1,0 +1,19 @@
+<h1>Profil użytkownika:</h1>
+<hr />
+<p><strong>Dane:</strong></p>
+<?php echo $this->form ?>
+<hr/>
+<p><strong>Zmień hasło:</strong></p>
+<p>Użytkownik: <strong><i><?php echo $this->user ?></i></strong></p>
+<?php echo $this->changePassForm ?>
+
+<div class="backStyle">
+	<ul>
+		<li class="btnBack" id="btnBack">
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin'),'default',true) ?>"><span class="btnBackSpan">&nbsp;</span></a>
+		</li>
+		<li class="txtBack">
+			<span>Powrót</span>
+		</li>
+	</ul>
+</div>

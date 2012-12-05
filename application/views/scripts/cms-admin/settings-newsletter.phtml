@@ -1,0 +1,19 @@
+<h1>Ustawienia wysyłania informacji (newsletter):</h1>
+<hr />
+<p>Poczta będzie wysyłana z konta</p>
+<h2>Ustawienia SMTP:</h2>
+<?php echo $this->form ?>
+<hr />
+<h2>Zmiana hasła dla połączenia z serwerem SMTP:</h2>
+<?php echo $this->passwordForm ?>
+
+<div class="backStyle">
+	<ul>
+		<li class="btnBack" id="btnBack">
+			<a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'list-newsletter'),'default',true) ?>"><span class="btnBackSpan">&nbsp;</span></a>
+		</li>
+		<li class="txtBack">
+			<span>Powrót</span>
+		</li>
+	</ul>
+</div>

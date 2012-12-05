@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<projectProfile type="default" version="1.11.11">
+  <projectDirectory>
+    <projectProfileFile filesystemName=".zfproject.xml"/>
+    <applicationDirectory classNamePrefix="Application_">
+      <apisDirectory enabled="false"/>
+      <configsDirectory>
+        <applicationConfigFile type="ini"/>
+      </configsDirectory>
+      <controllersDirectory>
+        <controllerFile controllerName="Index">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="show"/>
+          <actionMethod actionName="category"/>
+          <actionMethod actionName="articles"/>
+          <actionMethod actionName="search"/>
+          <actionMethod actionName="sitemap"/>
+          <actionMethod actionName="sideBar"/>
+        </controllerFile>
+        <controllerFile controllerName="Error"/>
+        <controllerFile controllerName="CmsAdmin">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="create"/>
+          <actionMethod actionName="add"/>
+          <actionMethod actionName="list"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="update"/>
+          <actionMethod actionName="delete"/>
+          <actionMethod actionName="options"/>
+          <actionMethod actionName="updateFoot"/>
+          <actionMethod actionName="addUser"/>
+          <actionMethod actionName="user"/>
+          <actionMethod actionName="changePass"/>
+          <actionMethod actionName="updateProfile"/>
+          <actionMethod actionName="profilePasschange"/>
+          <actionMethod actionName="newsletter"/>
+          <actionMethod actionName="addNewsletter"/>
+          <actionMethod actionName="delNewsletter"/>
+          <actionMethod actionName="editNewsletter"/>
+          <actionMethod actionName="listNewsletter"/>
+          <actionMethod actionName="newNewsletter"/>
+          <actionMethod actionName="settingsNewsletter"/>
+          <actionMethod actionName="saveSender"/>
+          <actionMethod actionName="passwordSender"/>
+          <actionMethod actionName="settingsCategory"/>
+          <actionMethod actionName="settingsArticle"/>
+          <actionMethod actionName="saveSettings"/>
+          <actionMethod actionName="sortCategory"/>
+          <actionMethod actionName="sortSubCategory"/>
+          <actionMethod actionName="sortArticle"/>
+          <actionMethod actionName="saveSorted"/>
+          <actionMethod actionName="saveSortedArticle"/>
+          <actionMethod actionName="updateSitename"/>
+          <actionMethod actionName="sidebar"/>
+          <actionMethod actionName="listSidebar"/>
+          <actionMethod actionName="addSidebar"/>
+          <actionMethod actionName="saveSidebar"/>
+          <actionMethod actionName="newSidebar"/>
+          <actionMethod actionName="updateSidebar"/>
+          <actionMethod actionName="listProduct"/>
+          <actionMethod actionName="product"/>
+          <actionMethod actionName="addProduct"/>
+          <actionMethod actionName="saveProduct"/>
+          <actionMethod actionName="delProduct"/>
+          <actionMethod actionName="newProduct"/>
+        </controllerFile>
+        <controllerFile controllerName="Auth">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="login"/>
+          <actionMethod actionName="logout"/>
+        </controllerFile>
+      </controllersDirectory>
+      <formsDirectory>
+        <formFile formName="Category"/>
+        <formFile formName="Article"/>
+        <formFile formName="Search"/>
+        <formFile formName="Login"/>
+        <formFile formName="Delete"/>
+        <formFile formName="Logout"/>
+        <formFile formName="Foot"/>
+        <formFile formName="Useradd"/>
+        <formFile formName="Passchange"/>
+        <formFile formName="Profile"/>
+        <formFile formName="Userpasschange"/>
+        <formFile formName="Newsletter"/>
+        <formFile formName="Sitemap"/>
+        <formFile formName="SettingsNewsletter"/>
+        <formFile formName="passwordNewsletter"/>
+        <formFile formName="CategorySettings"/>
+        <formFile formName="ArticleSettings"/>
+        <formFile formName="SiteName"/>
+        <formFile formName="Sidebar"/>
+        <formFile formName="SidebarSettings"/>
+        <formFile formName="Product"/>
+      </formsDirectory>
+      <layoutsDirectory>
+        <layoutScriptsDirectory>
+          <layoutScriptFile layoutName="layout"/>
+        </layoutScriptsDirectory>
+      </layoutsDirectory>
+      <modelsDirectory>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Category"/>
+          <dbTableFile dbTableName="Article"/>
+          <dbTableFile dbTableName="User"/>
+          <dbTableFile dbTableName="Foot"/>
+          <dbTableFile dbTableName="Newsletter"/>
+          <dbTableFile dbTableName="Receiver"/>
+          <dbTableFile dbTableName="Settings"/>
+          <dbTableFile dbTableName="Sender"/>
+          <dbTableFile dbTableName="CategorySettings"/>
+          <dbTableFile dbTableName="ArticleSettings"/>
+          <dbTableFile dbTableName="Product"/>
+          <dbTableFile dbTableName="ProductCategory"/>
+        </dbTableDirectory>
+      </modelsDirectory>
+      <modulesDirectory enabled="false"/>
+      <viewsDirectory>
+        <viewScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Error">
+            <viewScriptFile forActionName="error"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="show"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="category"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="articles"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="addCategory"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="addArticle"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="create"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="update"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="search"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="search"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="login"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="optons"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="updateFoot"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="addUser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="user"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="changePass"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="updateProfile"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Auth">
+            <viewScriptFile forActionName="show"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="profilePasschange"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="sitemap"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="newsletter"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="addNewsletter"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="delNewsletter"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="editNewsletter"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="listNewsletter"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="newNewsletter"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="settingsNewsletter"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="saveSender"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="passwordSender"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="settingsCategory"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="settingsArticle"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="saveSettings"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="sortCategory"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="sortSubCategory"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="sortArticle"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="saveSorted"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="saveSortedArticle"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="updateSitename"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="siteBar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="siteBar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="listSidebar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="addSidebar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="saveSidebar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="newSidebar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="settingsSidebar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="listProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="product"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="addProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="saveProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="delProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="newProduct"/>
+          </viewControllerScriptsDirectory>
+        </viewScriptsDirectory>
+        <viewHelpersDirectory/>
+        <viewFiltersDirectory enabled="false"/>
+      </viewsDirectory>
+      <bootstrapFile filesystemName="Bootstrap.php"/>
+    </applicationDirectory>
+    <dataDirectory enabled="false">
+      <cacheDirectory enabled="false"/>
+      <searchIndexesDirectory enabled="false"/>
+      <localesDirectory enabled="false"/>
+      <logsDirectory enabled="false"/>
+      <sessionsDirectory enabled="false"/>
+      <uploadsDirectory enabled="false"/>
+    </dataDirectory>
+    <docsDirectory>
+      <file filesystemName="README.txt"/>
+    </docsDirectory>
+    <libraryDirectory>
+      <zfStandardLibraryDirectory enabled="false"/>
+    </libraryDirectory>
+    <publicDirectory>
+      <publicStylesheetsDirectory enabled="false"/>
+      <publicScriptsDirectory enabled="false"/>
+      <publicImagesDirectory enabled="false"/>
+      <publicIndexFile filesystemName="index.php"/>
+      <htaccessFile filesystemName=".htaccess"/>
+    </publicDirectory>
+    <projectProvidersDirectory>
+      <projectProviderFile projectProviderName="user" actionNames="create"/>
+      <projectProviderFile projectProviderName="user" actionNames="create"/>
+    </projectProvidersDirectory>
+    <temporaryDirectory enabled="false"/>
+    <testsDirectory>
+      <testPHPUnitConfigFile filesystemName="phpunit.xml"/>
+      <testPHPUnitBootstrapFile filesystemName="bootstrap.php"/>
+      <testApplicationDirectory>
+        <testApplicationControllerDirectory>
+          <testApplicationControllerFile forControllerName="Index"/>
+        </testApplicationControllerDirectory>
+      </testApplicationDirectory>
+      <testLibraryDirectory/>
+    </testsDirectory>
+  </projectDirectory>
+</projectProfile>

@@ -1,0 +1,570 @@
+/*Copyrighs (c) Web At Net - Infinity CMS*/
+
+
+/*MENU VERTICAL*/
+#navigationMenu li{
+    list-style:none;
+    height:32px;
+    padding:2px;
+    width:40px;
+}
+
+#navigationMenu span{
+    /* Container properties */
+    width:0;
+    left:29px;
+    padding:0;
+    position:absolute;
+    overflow:hidden;
+
+    /* Text properties */
+    font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:0.6px;
+    white-space:nowrap;
+    line-height:33px;
+    
+    /* CSS3 Transition: */
+    -webkit-transition: 0.25s;
+}
+
+#navigationMenu a{
+    background:url(/image/cms-admin/icons_menu.png) no-repeat;
+
+    height:32px;
+    width:29px;
+    display:block;
+    position:relative;
+    text-decoration: none;
+}
+
+/* General hover styles */
+
+#navigationMenu a:hover span{ width:120px; padding:0 70px;overflow:visible; }
+#navigationMenu a:hover{
+    text-decoration:none;
+    
+    /* CSS outer glow with the box-shadow property */
+    -moz-box-shadow:0 0 5px #9ddff5;
+    -webkit-box-shadow:0 0 5px #9ddff5;
+    box-shadow:0 0 5px #9ddff5;
+}
+
+/*START SITE*/
+#navigationMenu .leftStart { background-position:-59px -33px;}
+#navigationMenu .leftStart:hover {   background-position:-59px 0px;}
+#navigationMenu .leftStart span{
+    background-color:#EAE4D6;
+    color:#0398CA;
+    text-shadow:1px 2px 0 #000;
+}
+
+/*MAIN OPTIONS*/
+#navigationMenu .leftMainOptions { background-position:-207px -33px;}
+#navigationMenu .leftMainOptions:hover {   background-position:-207px 0px;}
+#navigationMenu .leftMainOptions span{
+    background-color:#EAE4D6;
+    color:#0398CA;
+    text-shadow:1px 2px 0 #000;
+}
+
+/*USER PROFILE*/
+#navigationMenu .leftUser { background-position:-299px -33px;}
+#navigationMenu .leftUser:hover {   background-position:-299px 0px;}
+#navigationMenu .leftUser span{
+    background-color:#EAE4D6;
+    color:#0398CA;
+    text-shadow:1px 2px 0 #000;
+}
+
+/*CATEGORY*/
+#navigationMenu .leftCategory { background-position:-269px -33px;}
+#navigationMenu .leftCategory:hover {   background-position:-269px 0px;}
+#navigationMenu .leftCategory span{
+    background-color:#EAE4D6;
+    color:#0398CA;
+    text-shadow:1px 2px 0 #000;
+}
+
+/*ARTICLE*/
+#navigationMenu .leftArticle { background-position:-149px -33px;}
+#navigationMenu .leftArticle:hover {   background-position:-149px 0px;}
+#navigationMenu .leftArticle span{
+    background-color:#EAE4D6;
+    color:#0398CA;
+    text-shadow:1px 2px 0 #000;
+}
+
+/*PRODUCT*/
+#navigationMenu .leftProduct { background-position:-120px -33px;}
+#navigationMenu .leftProduct:hover {   background-position:-120px 0px;}
+#navigationMenu .leftProduct span{
+    background-color:#EAE4D6;
+    color:#0398CA;
+    text-shadow:1px 2px 0 #000;
+}
+
+/*NEWSLETTER*/
+#navigationMenu .leftNewsletter { background-position:-28px -33px;}
+#navigationMenu .leftNewsletter:hover {   background-position:-28px 0px;}
+#navigationMenu .leftNewsletter span{
+    background-color:#EAE4D6;
+    color:#0398CA;
+    text-shadow:1px 2px 0 #000;
+}
+
+/*SIDE BAR*/
+#navigationMenu .leftSideBar { background-position:-238px -33px;}
+#navigationMenu .leftSideBar:hover {   background-position:-238px 0px;}
+#navigationMenu .leftSideBar span{
+    background-color:#EAE4D6;
+    color:#0398CA;
+    text-shadow:1px 2px 0 #000;
+}
+
+#navigationMenu .onLineStart
+{
+  color:#3D3D3D;
+  font-size: 18px;
+  display:block;
+  width: 250px;
+  margin-left:55px;
+  margin-top:-27px;
+  letter-spacing: 5px;
+}
+
+/*MENU HORIZONTAL*/
+.expand-up {
+  font-family:Arial, Helvetica, sans-serif;
+  line-height:normal;
+  height:150px;
+  width:500px;
+  background-color: #EAE4D6;
+  overflow:visible;
+  margin-bottom:30px;
+}
+/* reset margins and paddings */
+.expand-up * {
+  margin: 0;
+  padding: 0;
+}
+.expand-up ul {
+  margin-left:10px;
+}
+.expand-up ul li {
+  float:left;
+  list-style-type:none;
+  /* create a reserved space for expanded image to make this work in ie */
+  padding-top:65px;
+  /* margin to place the menu at the bottom */
+  margin-top:25px;
+}
+.expand-up ul li a {
+  text-decoration:none;
+}
+.expand-up ul li a img {
+  width:50px;  /* initial width of images, 50% of width */
+  height:50px; /* initial height of images, 50% of height */
+  border:none;
+}
+/* initially, don't show the label inside <span> tag */
+.expand-up ul li a span {
+  display:none;
+}
+.expand-up ul li:hover a span {
+  /* show item label on mouse hover */
+  display:block;
+  font-size:14px;
+  text-align:center;
+  color:#fff;
+  /* move label up to move image up */
+  margin-top:-65px;
+}
+/* expand the image to 100% on mouse hover.
+** again, ideal dimension of image is equal to width and height below
+*/
+.expand-up ul li:hover a img {
+  width:100px;
+  height:100px;
+}
+/* expand the image next to the right of active image to 60% using + selector */
+.expand-up ul li:hover + li a img {
+  width:60px;
+  height:60px;
+  /* move image up by 10px so bottom aligns with other images */
+  margin-top:-10px;
+}
+/* expand the image second to the right of active image to 55% using + selectors */
+.expand-up ul li:hover + li + li a img {
+  width:55px;
+  height:55px;
+  /* move image up by 5px so bottom aligns with the other items */
+  margin-top:-5px;
+}
+
+/*MENU*/
+.cmsMenu
+{
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:normal;
+    height:67px;
+    width:581px;
+    background-color: #EAE4D6;
+}
+
+.cmsMenu *
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.cmsMenu ul li 
+{
+    list-style-type: none;
+    text-decoration: none;
+    display: inline-block;
+    height: 67px;
+    width: 80px;
+}
+.cmsMenu ul li:hover
+{
+    -moz-box-shadow:0 0 5px #0398ca;
+    -webkit-box-shadow:0 0 5px #0398ca;
+    box-shadow:0 0 5px #0398ca;
+}
+
+.cmsMenu ul li a span.start
+{
+    background: url(/image/cms-admin/icons_main_site.png) no-repeat;
+    width: 59px; 
+    height: 45px;
+    position: absolute;
+    background-position: -111.5px -0px; 
+}
+
+.cmsMenu ul li a span.startS
+{
+    width: 59px;
+    height: 27px;
+    text-align: center;
+    position: relative;
+    top: 47px;
+}
+
+.cmsMenu ul li a span.startOptions
+{
+    background: url(/image/cms-admin/icons_main_site.png) no-repeat;
+    width: 59px; 
+    height: 45px;
+    position: absolute;
+    background-position: -409.5px -0px; 
+}
+
+.cmsMenu ul li a span.startOptionsS
+{
+    width: 59px;
+    height: 27px;
+    text-align: center;
+    position: relative;
+    top: 47px;
+}
+
+.cmsMenu ul li a span.startUser
+{
+    background: url(/image/cms-admin/icons_main_site.png) no-repeat;
+    width: 59px; 
+    height: 45px;
+    position: absolute;
+    background-position: -585.5px -0px;
+    margin-left: 10px;
+}
+
+.cmsMenu ul li a span.startUserS
+{
+    width: 59px;
+    height: 27px;
+    text-align: center;
+    position: relative;
+    top: 47px;
+}
+
+.cmsMenu ul li a span.startCategory
+{
+    background: url(/image/cms-admin/icons_main_site.png) no-repeat;
+    width: 59px; 
+    height: 45px;
+    position: absolute;
+    background-position: -527.5px -0px;
+}
+
+.cmsMenu ul li a span.startCategoryS
+{
+    width: 59px;
+    height: 27px;
+    text-align: center;
+    position: relative;
+    top: 47px;
+}
+
+.cmsMenu ul li a span.startArticle
+{
+    background: url(/image/cms-admin/icons_main_site.png) no-repeat;
+    width: 59px; 
+    height: 45px;
+    position: absolute;
+    background-position: -288.5px -0px;
+}
+
+.cmsMenu ul li a span.startArticleS
+{
+    width: 59px;
+    height: 27px;
+    text-align: center;
+    position: relative;
+    top: 47px;
+}
+
+.cmsMenu ul li a span.startProduct
+{
+    background: url(/image/cms-admin/icons_main_site.png) no-repeat;
+    width: 59px; 
+    height: 45px;
+    position: absolute;
+    background-position: -228.5px -0px;
+}
+
+.cmsMenu ul li a span.startProductS
+{
+    width: 59px;
+    height: 27px;
+    text-align: center;
+    position: relative;
+    top: 47px;
+}
+
+.cmsMenu ul li a span.startNewsletter
+{
+    background: url(/image/cms-admin/icons_main_site.png) no-repeat;
+    width: 59px; 
+    height: 45px;
+    position: absolute;
+    background-position: -48.5px -0px;
+}
+
+.cmsMenu ul li a span.startNewsletterS
+{
+    width: 20px;
+    height: 27px;
+    text-align: center;
+    position: relative;
+    top: 47px;
+}
+
+.cmsMenu ul li a span.startSideBar
+{
+    background: url(/image/cms-admin/icons_main_site.png) no-repeat;
+    width: 59px; 
+    height: 45px;
+    position: absolute;
+    background-position: -470.5px -0px; 
+}
+
+.cmsMenu ul li a span.startSideBarS
+{
+    width: 59px;
+    height: 27px;
+    text-align: center;
+    position: relative;
+    top: 47px;
+}
+
+/*MENU IN CATEGORY, ARTICLE AND OTHERS*/
+
+/*CONTAINER FOR PLACED TITLE AND ADD OPTION*/
+
+.containerTitleSubPage
+{
+  margin-right: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 50px;
+}
+
+.containerTitleSubPageLeft
+{
+
+  position: relative;
+  width: 50%;
+  height: 50px;
+  float: left;
+  text-align: left;
+}
+
+.containerTitleSubPageRight
+{
+  position: relative;
+  height: 50px;
+  float: right;
+  text-align: right;
+}
+
+.addStyle li
+{
+  display: inline-block;
+  list-style: none;
+  float: right;
+  width: auto;
+}
+
+.addStyle ul li a
+{
+  text-decoration: none;
+}
+
+#btnAddID
+{
+  width: 25px;
+}
+
+#btnSettingsID
+{
+  width: 25px;
+}
+
+.txtAdd
+{
+  margin-left: 10px;
+  font-size: 17px;
+  font-weight: bolder;
+}
+
+.btnAdd
+{
+  background: url(/image/cms-admin/additional-buttons-sprites.png) no-repeat;
+  width: 24px;
+  height: 23px;
+  background-position: -78.5px -75px;
+}
+
+.btnAddSpan
+{
+  display:block; 
+  width:22px; 
+  height: 21px;
+}
+
+.btnAddSpan:hover
+{
+  border: 2px solid #0398CA;
+}
+
+.btnSettings
+{
+  background: url(/image/cms-admin/additional-buttons-sprites.png) no-repeat;
+  width: 24px;
+  height: 23px;
+  background-position: -206px -75px;
+}
+
+.btnSettingsSpan
+{
+  display:block; 
+  width:22px; 
+  height: 21px;
+}
+
+.btnSettingsSpan:hover
+{
+  border: 2px solid #0398CA;
+}
+
+/*BUTTON BACK TO PREVIOUS PAGE*/
+
+.backStyle ul
+{
+  margin: 0px 0px 20px 0px;
+  padding: 0px;
+  
+}
+
+.backStyle li
+{
+  display: inline-block;
+  margin-bottom: 20px;
+  list-style: none;
+  float: left;
+  width: auto;
+  height: 25px;
+  background-color: #DDDDDD;
+  
+}
+
+.backStyle ul li a
+{
+  text-decoration: none;
+}
+
+.txtBack
+{
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: bolder;
+}
+
+.txtBack span
+{
+  display:block;
+  height:25px;
+  padding-top:4px;
+}
+
+.btnBack
+{
+  background: url(/image/cms-admin/additional-buttons-sprites.png) no-repeat;
+  width: 25px;
+  height: 25px;
+  background-position: -104px -72px;
+}
+
+.btnBackSpan
+{
+  display:block; 
+  width:25px; 
+  height: 25px;
+}
+
+.btnBackSpan:hover
+{
+  background: url(/image/cms-admin/additional-buttons-sprites.png) no-repeat;
+  width: 25px; 
+  height: 25px; 
+  background-position: -129px -72px;
+}
+/*
+BOTTOM
+{ width: 26px; height: 26px; background-position: -0px -72px; }
+{ width: 26px; height: 26px; background-position: -26px -72px; }
+{ width: 26px; height: 26px; background-position: -51px -72px; }
+{ width: 26px; height: 26px; background-position: -77.5px -72px; }
+{ width: 26px; height: 26px; background-position: -103px -72px; }
+{ width: 26px; height: 26px; background-position: -129px -72px; }
+{ width: 26px; height: 26px; background-position: -155px -72px; }
+{ width: 26px; height: 26px; background-position: -181px -72px; }*/
+/*
+MIDDLE
+{ width: 34px; height: 33px; background-position: -0px -39px; }
+{ width: 32px; height: 33px; background-position: -33px -39px; }
+{ width: 33px; height: 33px; background-position: -65px -39px; }*/
+
+/*
+TOP
+{ width: 20px; height: 40px; background-position: -0px -0px; }lista
+{ width: 21px; height: 40px; background-position: -19px -0px; }klucz
+{ width: 20px; height: 40px; background-position: -40px -0px; }ludzik
+{ width: 18px; height: 40px; background-position: -60px -0px; }znak ?
+{ width: 22px; height: 40px; background-position: -78px -0px; }ludzik czyta
+{ width: 20px; height: 40px; background-position: -100px -0px; }lista do folderów
+{ width: 21px; height: 40px; background-position: -119px -0px; }koszyk
+*/

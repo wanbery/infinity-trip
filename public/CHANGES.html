@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+	<title>Changelog &mdash; Infinity - WAN CMS</title>
+	<style type="text/css">
+		#footer hr
+		{
+			margin: 10px 0 15px 0;
+			height: 1px;
+			border: solid 1px gray;
+			border-bottom: none;
+		}
+
+		#footer p
+		{
+			margin: 0 10px 10px 10px;
+			float: left;
+		}
+
+		#footer #copy
+		{
+			float: right;
+		}
+	</style>
+</head>
+<body>
+	<h1>Infinity WAN-CMS Changelog<br />
+		========================
+	</h1>
+
+	<h3>Infinity WAN-CMS 2.0</h3>
+	<p>Fixed issues:</p>
+	<ul>
+		<li>#29: [PHP, DATA BASE] Dodanie podkategorii (modyfikowane zostało: menu, wyświetlanie kategorii oraz podkategorii, przypisane artykuły, formularz dodawania kategorii oraz edycji)</li>
+		<li>#28: [PHP] Sesja. Zarządzanie treścią</li>
+		<li>#27: [PHP] Dodawanie usuwanie oraz edycja ARTYKUŁÓW i KATEGORII</li>
+		<li>#26: [DATA BASE] Zmiana bazy danych do nowej wersji</li>
+		<li>#25: [PHP] Przerobienie źródła strony na Zend Framework</li>
+	</ul>
+
+	<h3>Infinity WAN-CMS 0.6</h3>
+	<p>Fixed issues:</p>
+	<ul>
+		<li>#24: [PHP] Oznaczenie aktualnie czytanej wiadomości</li>
+		<li>#23: [PHP, DATA BASE] Informowanie użytkownika o nowej wiadomości oraz zaznaczenie nie przeczytanych. Dodanie do tabeli w bazie danych `MESSAGE` -> `READED_MESSAGE` przyjumjąca wartości TRUE lub FALSE</li>
+		<li>#22: [PHP] Wyświetlanie wyników wyszukiwania, w przypadku braku takiej frazy w tabeli `CATEGORY` lub `ARTICLE`</li>
+		<li>#21: [PHP] Informacja o ilości znalezionych stron, dla szukanej frazy</li>
+	</ul>
+
+	<h3>Infinity WAN-CMS 0.5</h3>
+	<p>Fixed issues:</p>
+	<ul>
+		<li>#20: [PHP] Wyświetlanie listy prywatnych wiadomości oraz wyświetlenie konkretnej wiadomości</li>
+		<li>#19: [PHP] Poprawiono przekierowanie 301 categorii, która jest stroną główną</li>
+		<li>#18: [PHP] Wyszukiwanie frazy w kategorii i artykułach</li>
+		<li>#17: [PHP] Wysyłanie oraz odbieranie prywatnych wiadomości</li>
+		<li>#16: [PHP] Naprawa wyświetlania stopki w ustawieniach. Jeżeli zostanie ustawiona na FALSE - nie będzie wyświetlana</li>
+		<li>#15: [DATA BASE] Dodanie tabeli `OPTION` -> `NAME_OPTION`(UNIQE), `CONTENT_OPTION`(VARCHAR 100). Tabela zawiera opcje CMS, dotyczące jego wyświetlania jak i użytkowania. Np.: czy domena ma być indeksowana czy nie, za pomocą &lt;meta name="robots" content="index,follow"&gt;</li>
+		<li>#14: [PHP] Modyfikacja funkcji przekierowania 301, 302, 404 na bardziej uniwersalną</li>
+	</ul>
+
+	<h3>Infinity WAN-CMS 0.4</h3>
+	<p>Fixed issues:</p>
+	<ul>
+		<li>#13: [PHP] Przekierowanie całej domeny na inny adres. Ustawienie przekierowania można dokonać w: ../include/define.php (define(REDIRECT, ...))</li>
+		<li>#12: [PHP] Meta: możliwość ustawiania opcji dla robotów. Np. index,follow</li>
+		<li>#11: [PHP] Informacje oraz opis (tzw. indeksy górne "informacja<sup>2</sup>") dla wpisywanych wartości w kategorii oraz artykułach</li>
+		<li>#10: [PHP] Zmiana hasła przez administratora dla użytkowników w razie utraty</li>
+		<li>#9: [PHP] Dodawanie nowego użytkownika przez administratora</li>
+		<li>#8: [PHP] Zapisywanie zmian profilu użytkownika</li>
+		<li>#7: [PHP] Wyświetlanie profilu użytkownika</li>
+		<li>#6: [PHP] Sprawdzanie istnienia funkcji, tak by zapobiec wprowadzaniu błędnych parametrów do CMS'a</li>
+		<li>#5: [PHP] Dodanie modułu przekierowań do kategorii 301 Moved Permanently, 302 Moved Temporarily, 404 Not Found</li>
+		<li>#4: [PHP] Dodanie modułu przekierowań do artykułów 301 Moved Permanently, 302 Moved Temporarily, 404 Not Found</li>
+	</ul>
+
+	<h3>Infinity WAN-CMS 0.3</h3>
+	<p>Fixed issues:</p>
+	<ul>
+		<li>#3: [PHP] Dodanie CKEditor do edycji oraz dodawania kategorii i artykułów</li>
+		<li>#2: [PHP] Możliwość edycji stopki CMS'a</li>
+		<li>#1: [INFO] Wystartował CHANGELOG od tej wersji</li>
+	</ul>
+
+	<div id="footer">
+		<hr />
+		<p>
+			Infinity WAN-CMS - <a href="http://wan-cms.local/">http://wan-cms.local</a>
+		</p>
+		<p id="copy">
+			Copyright &copy; 2009-2012, <a href="http://wan-cms.local/">WAN</a> - Paweł
+			Tobis. All rights reserved.
+		</p>
+	</div>
+</body>
+</html>

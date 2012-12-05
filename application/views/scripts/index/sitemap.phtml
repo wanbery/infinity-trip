@@ -1,0 +1,35 @@
+<h1>Mapa strony:</h1>
+<ul>
+	<?php foreach ($this->categoryMap as $categories): ?>
+	<?php if ($categories['sub_category'] == 0): ?>
+		<li>
+			<a href="<?php echo $this->url(array('action'=>'category','id_category'=>$categories['id_category']),'default',true) ?>"><?php echo $categories['name_category'] ?></a>
+			<ul>
+				<?php foreach ($this->subcategoryMap as $subcategories): ?>
+					<?php if ($subcategories['sub_category'] == $categories['id_category']): ?>
+						<li>
+							<a href="<?php echo $this->url(array('action'=>'category','id_category'=>$subcategories['id_category']),'default',true) ?>"><?php echo $subcategories['name_category'] ?></a>
+							<ul>
+								<?php foreach ($this->articleMap as $articles): ?>
+									<?php if ($articles['id_category'] == $subcategories['id_category']): ?>
+										<li>
+											<a href="<?php echo $this->url(array('action'=>'articles','id_category'=>$categories['id_category'],'id_article'=>$articles['id_article']),'default',true) ?>"><?php echo $articles['name_article'] ?></a>
+										</li>
+									<?php endif ?>
+								<?php endforeach ?>
+							</ul>
+						</li>
+					<?php endif ?>
+				<?php endforeach ?>
+				<?php foreach ($this->articleMap as $articles): ?>
+					<?php if ($articles['id_category'] == $categories['id_category']): ?>
+						<li>
+							<a href="<?php echo $this->url(array('action'=>'articles','id_category'=>$categories['id_category'],'id_article'=>$articles['id_article']),'default',true) ?>"><?php echo $articles['name_article'] ?></a>
+						</li>
+					<?php endif ?>
+				<?php endforeach ?>
+			</ul>
+		</li>
+		<?php endif ?>
+	<?php endforeach ?>
+</ul>
