@@ -674,7 +674,7 @@ class CmsAdminController extends Zend_Controller_Action
 
                 return $this->_helper->redirector('settings-article','cms-admin','default');
             }
-        } else {
+        } elseif($select['option'] == 'category') {
             $Db = new Application_Model_DbTable_CategorySettings();
             $this->view->form = new Application_Form_CategorySettings();
             $object = $Db->find(1)->current();
@@ -688,6 +688,21 @@ class CmsAdminController extends Zend_Controller_Action
                 $Db->update($object->toArray());
 
                 return $this->_helper->redirector('settings-category','cms-admin','default');
+            }
+        } elseif($select['option'] == 'product') {
+            $Db = new Application_Model_DbTable_ProductSettings();
+            $this->view->form = new Application_Form_ProductSettings();
+            $object = $Db->find(1)->current();
+
+            if (!$object)
+                throw new Zend_Controller_Action_Exception("Błąd: obiekt nie istnieje!", 404);
+
+            if ($this->getRequest()->isPost()) {
+                $data = $this->getRequest()->getPost();
+                $object->setFromArray($data);
+                $Db->update($object->toArray());
+
+                return $this->_helper->redirector('settings-product','cms-admin','default');
             }
         }//closing curly bracket
     }
@@ -962,7 +977,26 @@ class CmsAdminController extends Zend_Controller_Action
         $this->view->form->setAction($url);
     }
 
+    public function settingsProductAction()
+    {
+        // action body
+        $Db = new Application_Model_DbTable_ProductSettings();
+        $this->view->form = new Application_Form_ProductSettings();
+        $object = $Db->find(1)->current();
+
+        if (!$object)
+            throw new Zend_Controller_Action_Exception("Błąd: obiekt nie istnieje!", 404);
+
+        $this->view->form->populate($object->toArray());
+
+        $url = $this->view->url(array('action'=>'save-settings','option'=>'product'));
+        $this->view->form->setAction($url);
+    }
+
+
 }
+
+
 
 
 

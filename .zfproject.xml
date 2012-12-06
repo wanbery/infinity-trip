@@ -63,6 +63,7 @@
           <actionMethod actionName="saveProduct"/>
           <actionMethod actionName="delProduct"/>
           <actionMethod actionName="newProduct"/>
+          <actionMethod actionName="settingsProduct"/>
         </controllerFile>
         <controllerFile controllerName="Auth">
           <actionMethod actionName="index"/>
@@ -92,6 +93,7 @@
         <formFile formName="Sidebar"/>
         <formFile formName="SidebarSettings"/>
         <formFile formName="Product"/>
+        <formFile formName="ProductSettings"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -112,6 +114,7 @@
           <dbTableFile dbTableName="ArticleSettings"/>
           <dbTableFile dbTableName="Product"/>
           <dbTableFile dbTableName="ProductCategory"/>
+          <dbTableFile dbTableName="ProductSettings"/>
         </dbTableDirectory>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
@@ -293,6 +296,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="CmsAdmin">
             <viewScriptFile forActionName="newProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="settingProduct"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
