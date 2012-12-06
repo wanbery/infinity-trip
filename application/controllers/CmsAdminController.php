@@ -634,7 +634,7 @@ class CmsAdminController extends Zend_Controller_Action
 
         $this->view->form->populate($object->toArray());
 
-        $url = $this->view->url(array('action'=>'save-settings','option'=>'category'));
+        $url = $this->view->url(array('action'=>'save-settings','option'=>'category','id'=>'1'));
         $this->view->form->setAction($url);
     }
 
@@ -650,7 +650,7 @@ class CmsAdminController extends Zend_Controller_Action
 
         $this->view->form->populate($object->toArray());
 
-        $url = $this->view->url(array('action'=>'save-settings','option'=>'article'));
+        $url = $this->view->url(array('action'=>'save-settings','option'=>'article','id'=>'1'));
         $this->view->form->setAction($url);
     }
 
@@ -658,52 +658,25 @@ class CmsAdminController extends Zend_Controller_Action
     {
         // action body
         $select = $this->getRequest()->getParams('option');
+        $optionNumber = $this->getRequest()->getParams();
 
-        if ($select['option'] == 'article') {
-            $Db = new Application_Model_DbTable_ArticleSettings();
-            $this->view->form = new Application_Form_ArticleSettings();
-            $object = $Db->find(1)->current();
+        $nameDb = 'Application_Model_DbTable_'.ucfirst($select['option']).'Settings';
+        $nameForm = 'Application_Form_'.ucfirst($select['option']).'Settings';
 
-            if (!$object)
-                throw new Zend_Controller_Action_Exception("Błąd: obiekt nie istnieje!", 404);
+        $Db = new $nameDb();
+        $this->view->form = new $nameForm();
 
-            if ($this->getRequest()->isPost()) {
-                $data = $this->getRequest()->getPost();
-                $object->setFromArray($data);
-                $Db->update($object->toArray());
+        $object = $Db->find($optionNumber['id'])->current();
 
-                return $this->_helper->redirector('settings-article','cms-admin','default');
-            }
-        } elseif($select['option'] == 'category') {
-            $Db = new Application_Model_DbTable_CategorySettings();
-            $this->view->form = new Application_Form_CategorySettings();
-            $object = $Db->find(1)->current();
+        if (!$object)
+            throw new Zend_Controller_Action_Exception("Błąd: obiekt nie istnieje!", 404);
 
-            if (!$object)
-                throw new Zend_Controller_Action_Exception("Błąd: obiekt nie istnieje!", 404);
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getPost();
+            $object->setFromArray($data);
+            $Db->update($object->toArray());
 
-            if ($this->getRequest()->isPost()) {
-                $data = $this->getRequest()->getPost();
-                $object->setFromArray($data);
-                $Db->update($object->toArray());
-
-                return $this->_helper->redirector('settings-category','cms-admin','default');
-            }
-        } elseif($select['option'] == 'product') {
-            $Db = new Application_Model_DbTable_ProductSettings();
-            $this->view->form = new Application_Form_ProductSettings();
-            $object = $Db->find(1)->current();
-
-            if (!$object)
-                throw new Zend_Controller_Action_Exception("Błąd: obiekt nie istnieje!", 404);
-
-            if ($this->getRequest()->isPost()) {
-                $data = $this->getRequest()->getPost();
-                $object->setFromArray($data);
-                $Db->update($object->toArray());
-
-                return $this->_helper->redirector('settings-product','cms-admin','default');
-            }
+            return $this->_helper->redirector('settings-'.$select['option'],'cms-admin','default');
         }//closing curly bracket
     }
 
@@ -989,7 +962,7 @@ class CmsAdminController extends Zend_Controller_Action
 
         $this->view->form->populate($object->toArray());
 
-        $url = $this->view->url(array('action'=>'save-settings','option'=>'product'));
+        $url = $this->view->url(array('action'=>'save-settings','option'=>'product','id'=>'1'));
         $this->view->form->setAction($url);
     }
 

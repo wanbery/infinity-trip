@@ -15,7 +15,7 @@ class Application_Form_CategorySettings extends Zend_Form
 
     public function select()
     {
-    	$select = new Zend_Form_Element_Select('value_category_settings',array('label'=>'Czy pasek boczny ma być widoczny:','multiOptions'=>array('true'=>'Tak','false'=>'Nie')));
+    	$select = new Zend_Form_Element_Select('value_category_settings',array('label'=>'Czy tytuły kategorii mają być widoczne:','multiOptions'=>array('true'=>'Tak','false'=>'Nie')));
 
     	$this->addElement($select);
     }
