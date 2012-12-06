@@ -657,16 +657,15 @@ class CmsAdminController extends Zend_Controller_Action
     public function saveSettingsAction()
     {
         // action body
-        $select = $this->getRequest()->getParams('option');
-        $optionNumber = $this->getRequest()->getParams();
+        $option = $this->getRequest()->getParams();
 
-        $nameDb = 'Application_Model_DbTable_'.ucfirst($select['option']).'Settings';
-        $nameForm = 'Application_Form_'.ucfirst($select['option']).'Settings';
+        $nameDb = 'Application_Model_DbTable_'.ucfirst($option['option']).'Settings';
+        $nameForm = 'Application_Form_'.ucfirst($option['option']).'Settings';
 
         $Db = new $nameDb();
         $this->view->form = new $nameForm();
 
-        $object = $Db->find($optionNumber['id'])->current();
+        $object = $Db->find($option['id'])->current();
 
         if (!$object)
             throw new Zend_Controller_Action_Exception("Błąd: obiekt nie istnieje!", 404);
@@ -676,7 +675,7 @@ class CmsAdminController extends Zend_Controller_Action
             $object->setFromArray($data);
             $Db->update($object->toArray());
 
-            return $this->_helper->redirector('settings-'.$select['option'],'cms-admin','default');
+            return $this->_helper->redirector('settings-'.$option['option'],'cms-admin','default');
         }//closing curly bracket
     }
 
