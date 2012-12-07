@@ -94,6 +94,7 @@
         <formFile formName="SidebarSettings"/>
         <formFile formName="Product"/>
         <formFile formName="ProductSettings"/>
+        <formFile formName="ProductCategory"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>

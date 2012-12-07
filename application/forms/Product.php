@@ -4,6 +4,7 @@ class Application_Form_Product extends Zend_Form
 {
 	public function init()
     {
+        /* Form Elements & Other Definitions Here ... */
     	$section = 'product';
         //id_product	visible_product	position_product	name_product	content_product	title_meta_product	keywords_meta_product	description_meta_product
         $request = Zend_Controller_Front::getInstance()->getRequest();
@@ -12,7 +13,6 @@ class Application_Form_Product extends Zend_Form
         $this->setMethod('post');
         $this->addElement('submit','submit',array('label'=>'Zapisz'));
         $this->addElement('hidden','id_'.$section,array('value'=>''));
-        $this->setCategory();
         $this->select('visible_'.$section,'Czy strona ma być widoczna:');
         $this->addElement('text','position_'.$section,array('label'=>'Podaj pozycje w menu:'));
         $this->addElement('text','name_'.$section,array('label'=>'Tytuł:'));
@@ -39,19 +39,6 @@ class Application_Form_Product extends Zend_Form
     public function delete()
     {
         $this->addElement('text','delete_text',array('value'=>'wpisz DELETE'));
-    }
-
-    public function setCategory()
-    {
-        $Db = new Application_Model_DbTable_Category();
-
-        foreach ($Db->fetchAll() as $key) {
-            $table[$key['id_category']] = $key['name_category'];
-        }
-
-        $select = new Zend_Form_Element_Select('id_category',array('label'=>'Wybierz kategorie:','multiOptions'=>$table));
-        
-        $this->addElement($select);
     }
 
 }
