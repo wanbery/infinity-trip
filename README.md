@@ -12,11 +12,11 @@ How to use CUFON FONT:
     <script src="/javascripts/cufon-yui.js" type="text/javascript"></script>
     <script src="/javascripts/fonts/YOUR_FONT.js" type="text/javascript"></script>
 4. Set for e.g. 'h1' marker:
-    <script type="text/javascript">
+    	<script type="text/javascript">
   		Cufon.replace('h1');
-	  </script>
+	</script>
 or for class:
-    <script type=”text/javascript”>
-      Cufon.replace(‘h1′, { fontFamily: ‘YOUR_FONT′ });
-      Cufon.replace(‘.YOUR_CLASS’, { fontFamily: ‘YOUR_FONT′ });
-    </script>
+	<script type="text/javascript">
+	        Cufon.replace('h1', { fontFamily: 'YOUR_FONT' });
+	        Cufon.replace('.YOUR_CLASS', { fontFamily: 'YOUR_FONT' });
+	</script>
