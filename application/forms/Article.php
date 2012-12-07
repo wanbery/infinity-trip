@@ -16,7 +16,7 @@ class Application_Form_Article extends Zend_Form
         $this->addElement('hidden','id_'.$section,array('value'=>''));
         $this->setCategory();
         $this->select('visible_'.$section,'Czy strona ma być widoczna:');
-        $this->addElement('text','position_'.$section,array('label'=>'Podaj pozycje w menu:'));
+        $this->addElement('hidden','position_'.$section,array('value'=>0));
         //$this->setPosition($id);
         $this->addElement('text','name_'.$section,array('label'=>'Tytuł:'));
         $this->textArea($section);

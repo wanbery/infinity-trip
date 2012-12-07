@@ -14,7 +14,7 @@ class Application_Form_Category extends Zend_Form
         $this->subCategory($section);
         $this->select('visible_'.$section,'Czy strona ma być widoczna:');
         $this->select('start_site_'.$section,'Czy ma być to strona startowa:');
-        $this->addElement('text','position_'.$section,array('label'=>'Pozycja w menu:'));
+        $this->addElement('hidden','position_'.$section,array('value'=>0));
         $this->addElement('text','name_'.$section,array('label'=>'Tytuł:'));
         $this->textArea($section);
         $this->addElement('text','title_meta_'.$section,array('label'=>'Meta: title:'));

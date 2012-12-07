@@ -14,7 +14,7 @@ class Application_Form_Product extends Zend_Form
         $this->addElement('submit','submit',array('label'=>'Zapisz'));
         $this->addElement('hidden','id_'.$section,array('value'=>''));
         $this->select('visible_'.$section,'Czy strona ma być widoczna:');
-        $this->addElement('text','position_'.$section,array('label'=>'Podaj pozycje w menu:'));
+        $this->addElement('hidden','position_'.$section,array('value'=>0));
         $this->addElement('text','name_'.$section,array('label'=>'Tytuł:'));
         $this->textArea($section);
         $this->addElement('text','title_meta_'.$section,array('label'=>'Meta: title:'));

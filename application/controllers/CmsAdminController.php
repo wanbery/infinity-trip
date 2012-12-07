@@ -878,7 +878,6 @@ class CmsAdminController extends Zend_Controller_Action
         /*echo $select->__toString();*/
 
         $object = $Db->find($id['id'])->current();
-        $objectProductCategory = $DbProductCategory->select()->where('id_product = ?',$id['id']);
 
         $this->view->formProductCategory = new Application_Form_ProductCategory();
         $this->view->form = new Application_Form_Product();
@@ -925,7 +924,6 @@ class CmsAdminController extends Zend_Controller_Action
         $object = $Db->find($id['id'])->current();
         
         $this->view->form = new Application_Form_Product();
-
 
         if (!$object)
             throw new Zend_Controller_Action_Exception("Błędny adres!", 404);
