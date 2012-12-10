@@ -22,6 +22,12 @@ class Zend_View_Helper_Menu extends Zend_View_Helper_Abstract
 		//LIST OF ARTICLES - THE VALUE USED TO GENERATE ARTICLES
 		$articleMenu = $Article->fetchAll($selectArticle);
 
-		return $this->view->partial('menu.phtml',array('categoryMenu'=>$categoryMenu, 'subcategoryMenu'=>$subcategoryMenu,'articleMenu'=>$articleMenu));
+		$Product = Zend_Db_Table::getDefaultAdapter();
+
+		//LIST OF PRODUCTS - THE VALUE USED TO GENERATE PRODUCTS
+		$query = $Product->select()->from('product_category')->joinInner('product','product_category.id_product = product.id_product')->order('product_category.id_product');
+        $productMenu = $Product->fetchAll($query);	
+
+		return $this->view->partial('menu.phtml',array('categoryMenu'=>$categoryMenu, 'subcategoryMenu'=>$subcategoryMenu,'articleMenu'=>$articleMenu,'productMenu'=>$productMenu));
 	}
 }

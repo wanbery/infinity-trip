@@ -16,6 +16,7 @@
           <actionMethod actionName="search"/>
           <actionMethod actionName="sitemap"/>
           <actionMethod actionName="sideBar"/>
+          <actionMethod actionName="product"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="CmsAdmin">
@@ -300,6 +301,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="CmsAdmin">
             <viewScriptFile forActionName="settingProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="product"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

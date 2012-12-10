@@ -123,7 +123,30 @@ class IndexController extends Zend_Controller_Action
         $this->view->articleMap = $Article->fetchAll($select);
     }
 
+    public function productAction()
+    {
+        // action body
+        $Product = new Application_Model_DbTable_Product();
+        $titleDb = new Application_Model_DbTable_ProductSettings();
+        $id_product = $this->getRequest()->getParams();
+
+        $object = $titleDb->find(1)->current();
+
+        if (!$object)
+            throw new Zend_Controller_Action_Exception("Błąd: obiekt nie istnieje!", 404);
+
+        $this->view->titleResult = $object->toArray();
+
+        $select = $Product->select()->where('id_product = ?',$id_product['id_product'])->where('visible_product = ?','true')->order('position_product');
+        $this->view->product = $Product->fetchRow($select);
+        
+        if (!$this->view->product) throw new Zend_Controller_Action_Exception('Błąd - brak produktu', 404);
+    }
+
+
 }
+
+
 
 
 
