@@ -866,29 +866,21 @@ class CmsAdminController extends Zend_Controller_Action
     public function productAction()
     {
         // action body        
-        $id = $this->getRequest()->getParams('id');
+        $id = $this->getRequest()->getParams();
 
-        $Db = new Application_Model_DbTable_Product();
-        $DbProductCategory = new Application_Model_DbTable_ProductCategory();
+        $Db = Zend_Db_Table::getDefaultAdapter();
 
-        $dataBase = Zend_Db_Table::getDefaultAdapter();
-
-        $select = $dataBase->select()->from('product')->joinInner('product_category','product.id_product = product_category.id_product')->where('product_category.id_product = ?',$id['id']);
+        $select = $Db->fetchRow($Db->select()->from('product')->joinInner('product_category','product.id_product = product_category.id_product')->where('product_category.id_product = ?',$id['id']));
 
         /*echo $select->__toString();*/
 
-        $object = $Db->find($id['id'])->current();
-
-        $this->view->formProductCategory = new Application_Form_ProductCategory();
         $this->view->form = new Application_Form_Product();
-        $this->view->product = $object->toArray();
+        $this->view->product = $select;
 
-        if (!$object) 
+        if (!$select) 
             throw new Zend_Controller_Action_Exception("Błędny adres!", 404);
 
-        $this->view->form->populate($object->toArray());
-        $this->view->formProductCategory->populate(array($objectProductCategory));
-        $this->view->formProductCategory->setDefault($objectProductCategory);
+        $this->view->form->populate($select);
 
         $url = $this->view->url(array('action'=>'save-product'));
         $this->view->form->setAction($url);
@@ -918,9 +910,10 @@ class CmsAdminController extends Zend_Controller_Action
     public function saveProductAction()
     {
         // action body
-        $id = $this->getRequest()->getParams('id');
+        $id = $this->getRequest()->getParams();
 
         $Db = new Application_Model_DbTable_Product();
+
         $object = $Db->find($id['id'])->current();
         
         $this->view->form = new Application_Form_Product();

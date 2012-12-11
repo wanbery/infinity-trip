@@ -25,7 +25,7 @@ class Zend_View_Helper_Menu extends Zend_View_Helper_Abstract
 		$Product = Zend_Db_Table::getDefaultAdapter();
 
 		//LIST OF PRODUCTS - THE VALUE USED TO GENERATE PRODUCTS
-		$query = $Product->select()->from('product_category')->joinInner('product','product_category.id_product = product.id_product')->order('product_category.id_product');
+		$query = $Product->select()->from('product_category')->joinInner('product','product_category.id_product = product.id_product')->where('visible_product = ?','true')->order('product.position_product');
         $productMenu = $Product->fetchAll($query);	
 
 		return $this->view->partial('menu.phtml',array('categoryMenu'=>$categoryMenu, 'subcategoryMenu'=>$subcategoryMenu,'articleMenu'=>$articleMenu,'productMenu'=>$productMenu));
