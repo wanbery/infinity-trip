@@ -860,7 +860,12 @@ class CmsAdminController extends Zend_Controller_Action
     {
         // action body
         $Db = new Application_Model_DbTable_Product();
+        $DbProductCategory = new Application_Model_DbTable_ProductCategory();
+        $DbCategory = new Application_Model_DbTable_Category();
+        
         $this->view->data = $Db->fetchAll();
+        $this->view->dataProductCategory = $DbProductCategory->fetchAll();
+        $this->view->dataCategory = $DbCategory->fetchAll();
     }
 
     public function productAction()

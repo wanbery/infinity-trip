@@ -51,7 +51,19 @@
 		<tr class="listTr">
 			<td class="tablePadding"><?php echo $ordinal ?></td>
 			<td class="tablePadding"><a href="<?php echo $this->url(array('action'=>'product','id'=>$products['id_product']),'default') ?>"><?php echo $products['name_product']; ?></a></td>
-			<td class="tablePadding">Kategoriaaa</td>
+			<td class="tablePadding">
+				<?php
+					foreach ($this->dataProductCategory as $key) {
+						if ($key['id_product'] == $products['id_product']) {
+							foreach ($this->dataCategory as $value) {
+								if ($key['id_category'] == $value['id_category']) {
+									echo $value['name_category'].', ';
+								}
+							}
+						}
+					}
+				?>
+			</td>
 			<td class="tablePadding">
 				<?php if ($products['visible_product'] == 'false') {
 					echo 'Niewidoczny';
@@ -64,7 +76,19 @@
 		<tr>
 			<td class="tablePadding"><?php echo $ordinal ?></td>
 			<td class="tablePadding"><a href="<?php echo $this->url(array('action'=>'product','id'=>$products['id_product']),'default') ?>"><?php echo $products['name_product']; ?></a></td>
-			<td class="tablePadding">Kategoriaaa</td>
+			<td class="tablePadding">
+				<?php
+					foreach ($this->dataProductCategory as $key) {
+						if ($key['id_product'] == $products['id_product']) {
+							foreach ($this->dataCategory as $value) {
+								if ($key['id_category'] == $value['id_category']) {
+									echo $value['name_category'].', ';
+								}
+							}
+						}
+					}
+				?>
+			</td>
 			<td class="tablePadding">
 				<?php if ($products['visible_product'] == 'false') {
 					echo 'Niewidoczny';

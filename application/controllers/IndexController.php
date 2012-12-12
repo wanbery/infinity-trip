@@ -82,6 +82,7 @@ class IndexController extends Zend_Controller_Action
 
         $Category = new Application_Model_DbTable_Category();
         $Article = new Application_Model_DbTable_Article();
+        $Product = new Application_Model_DbTable_Product();
 
         $form = new Application_Form_Search();
         
@@ -97,13 +98,24 @@ class IndexController extends Zend_Controller_Action
                                            ->orWhere('content_article LIKE ?','%'.$fraze['search'].'%')
                                            ->where('visible_article = ?','true');
 
-        if ($Category->fetchAll($selectCategory)!='' || $Article->fetchAll($selectArticle)!='') {
+        $selectProduct = $Product->select()->where('visible_product = ?','true')
+                                           ->where('name_product LIKE ?','%'.$fraze['search'].'%')
+                                           ->orWhere('content_product LIKE ?','%'.$fraze['search'].'%')
+                                           ->where('visible_product = ?','true');
+
+        echo $selectProduct->__toString();
+
+        if ($Category->fetchAll($selectCategory)!='' || $Article->fetchAll($selectArticle)!='' || $Product->fetchAll($selectProduct)!='') {
             foreach ($Category->fetchAll($selectCategory) as $categories) {
                 echo '<br /><a href="'.$this->view->url(array('action'=>'category','id_category'=>$categories['id_category']),'default',true).'">'.$categories['name_category'].'</a>';
             }
         
             foreach ($Article->fetchAll($selectArticle) as $articles) {
                 echo '<br /><a href="'.$this->view->url(array('action'=>'articles','id_category'=>$articles['id_category'],'id_article'=>$articles['id_article']),'default',true).'">'.$articles['name_article'].'</a>';
+            }
+
+            foreach ($Product->fetchAll($selectProduct) as $products) {
+                echo '<br /><a href="'.$this->view->url(array('action'=>'product','id_product'=>$products['id_product']),'default',true).'">'.$products['name_product'].'</a>';
             }
         }else echo 'Brak wyników dla podanej frazy: '.$fraze['search'];
 
