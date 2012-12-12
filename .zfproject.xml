@@ -65,6 +65,8 @@
           <actionMethod actionName="delProduct"/>
           <actionMethod actionName="newProduct"/>
           <actionMethod actionName="settingsProduct"/>
+          <actionMethod actionName="joinProduct"/>
+          <actionMethod actionName="unplugProduct"/>
         </controllerFile>
         <controllerFile controllerName="Auth">
           <actionMethod actionName="index"/>
@@ -96,6 +98,8 @@
         <formFile formName="Product"/>
         <formFile formName="ProductSettings"/>
         <formFile formName="ProductCategory"/>
+        <formFile formName="ListProduct"/>
+        <formFile formName="AddedProduct"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -304,6 +308,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="product"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="joinProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="unplugProduct"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

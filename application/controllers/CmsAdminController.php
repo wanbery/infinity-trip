@@ -868,11 +868,13 @@ class CmsAdminController extends Zend_Controller_Action
         // action body        
         $id = $this->getRequest()->getParams();
 
-        $Db = Zend_Db_Table::getDefaultAdapter();
+        $Db = new Application_Model_DbTable_Product();
 
-        $select = $Db->fetchRow($Db->select()->from('product')->joinInner('product_category','product.id_product = product_category.id_product')->where('product_category.id_product = ?',$id['id']));
+        $select = $Db->fetchRow($Db->select()->where('id_product = ?',$id['id']));
 
-        /*echo $select->__toString();*/
+        $this->view->formCategory = new Application_Form_ListProduct();
+
+        $this->view->formAddedCategory = new Application_Form_AddedProduct();
 
         $this->view->form = new Application_Form_Product();
         $this->view->product = $select;
@@ -880,10 +882,16 @@ class CmsAdminController extends Zend_Controller_Action
         if (!$select) 
             throw new Zend_Controller_Action_Exception("Błędny adres!", 404);
 
-        $this->view->form->populate($select);
+        $this->view->form->populate($select->toArray(   ));
 
         $url = $this->view->url(array('action'=>'save-product'));
         $this->view->form->setAction($url);
+
+        $urlJoin = $this->view->url(array('action'=>'join-product'));
+        $this->view->formCategory->setAction($urlJoin);
+
+        $urlUnplug = $this->view->url(array('action'=>'unplug-product'));
+        $this->view->formAddedCategory->setAction($urlUnplug);
     }
 
     public function addProductAction()
@@ -960,8 +968,54 @@ class CmsAdminController extends Zend_Controller_Action
         $this->view->form->setAction($url);
     }
 
+    public function joinProductAction()
+    {
+        // action body
+        $Db = new Application_Model_DbTable_ProductCategory();
+
+        $id = $this->getRequest()->getParams();
+
+        $postedValue = $this->getRequest()->getPost();
+
+        foreach ($postedValue['id_category'] as $key) {
+            $query = $Db->select()->where('id_category = ?',$key)->where('id_product = ?',$id['id']);
+            if ($Db->fetchRow($query)) {
+                //CATEGORY EXIST - DON'T ADD
+            }else{
+                $data = array('id_category'=>$key,'id_product'=>$id['id']);
+                $result = $Db->insert($data);
+            }
+        }
+
+        return $this->_helper->redirector('product','cms-admin','default',array('id'=>$id['id']));
+    }
+
+    public function unplugProductAction()
+    {
+        // action body
+        $Db = new Application_Model_DbTable_ProductCategory();
+
+        $id = $this->getRequest()->getParams();
+
+        $postedValue = $this->getRequest()->getPost();
+        
+        foreach ($postedValue['id_category'] as $key) {
+            $query = $Db->select()->where('id_category = ?',$key)->where('id_product = ?',$id['id']);
+
+            $data = $Db->fetchRow($query);
+
+            $result = $data->delete();
+        }
+
+        return $this->_helper->redirector('product','cms-admin','default',array('id'=>$id['id']));
+    }
+
 
 }
+
+
+
+
 
 
 

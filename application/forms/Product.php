@@ -13,7 +13,6 @@ class Application_Form_Product extends Zend_Form
         $this->setMethod('post');
         $this->addElement('submit','submit',array('label'=>'Zapisz'));
         $this->addElement('hidden','id_'.$section,array('value'=>''));
-        $this->showCategory('Lista kategorii:');
         $this->select('visible_'.$section,'Czy strona ma być widoczna:');
         $this->addElement('hidden','position_'.$section,array('value'=>0));
         $this->addElement('text','name_'.$section,array('label'=>'Tytuł:'));
@@ -26,23 +25,6 @@ class Application_Form_Product extends Zend_Form
     public function select($section,$label)
     {
         $select = new Zend_Form_Element_Select($section,array('label'=>$label,'multiOptions'=>array('true'=>'Tak','false'=>'Nie')));
-
-        $this->addElement($select);
-    }
-
-    public function showCategory($label)
-    {
-        $dbCategory = new Application_Model_DbTable_Category();
-
-        $query = $dbCategory->select()->from('category')->order('position_category');
-
-        $categories = $dbCategory->fetchAll($query)->toArray();
-
-        foreach ($categories as $key) {
-            $multiOptions[$key['id_category']] = $key['name_category'];
-        }
-
-        $select = new Zend_Form_Element_Multiselect('id_category',array('label'=>$label,'multiOptions'=>$multiOptions));
 
         $this->addElement($select);
     }
