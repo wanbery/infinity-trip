@@ -67,6 +67,7 @@
           <actionMethod actionName="settingsProduct"/>
           <actionMethod actionName="joinProduct"/>
           <actionMethod actionName="unplugProduct"/>
+          <actionMethod actionName="saveSortedProduct"/>
         </controllerFile>
         <controllerFile controllerName="Auth">
           <actionMethod actionName="index"/>
@@ -314,6 +315,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="CmsAdmin">
             <viewScriptFile forActionName="unplugProduct"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="CmsAdmin">
+            <viewScriptFile forActionName="saveSortedProduct"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

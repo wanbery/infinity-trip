@@ -704,7 +704,7 @@ class CmsAdminController extends Zend_Controller_Action
         $this->view->listArticle = $DbArticle->fetchAll($selectArticle);
 
         $selectProduct = $DbProduct->select()->from('product')->joinInner('product_category','product_category.id_product = product.id_product')->where('product_category.id_category = ?',$id['id'])->order('product.position_product');
-        echo $selectProduct->__toString();
+        //echo $selectProduct->__toString();
         $this->view->listProduct = $DbProduct->fetchAll($selectProduct);
 
         $object = $DbCategory->find($id['id'])->current();
@@ -716,11 +716,16 @@ class CmsAdminController extends Zend_Controller_Action
         // action body
         $Db = new Application_Model_DbTable_Article();
         $DbCategoryName = new Application_Model_DbTable_Category();
+        $DbProduct = Zend_Db_Table::getDefaultAdapter();
 
-        $id = $this->getRequest()->getParams('sub');
+        $id = $this->getRequest()->getParams();
 
         $select = $Db->select()->where('id_category = ?',$id['sub'])->order('position_article');
         $this->view->listArticle = $Db->fetchAll($select);
+
+        $selectProduct = $DbProduct->select()->from('product')->joinInner('product_category','product_category.id_product = product.id_product')->where('product_category.id_category = ?',$id['sub'])->order('product.position_product');
+        //echo $selectProduct->__toString();
+        $this->view->listProduct = $DbProduct->fetchAll($selectProduct);
 
         $object = $DbCategoryName->find($id['id'])->current();
 
@@ -752,10 +757,27 @@ class CmsAdminController extends Zend_Controller_Action
 
         $val = explode('/',$_SERVER['REQUEST_URI']);
         $val[3] = str_replace('&', '', $val[3]);
-        $value = explode('set[]=', $val[3]);
+        $value = explode('setArt[]=', $val[3]);
 
         for ($i=1; $i < count($value); $i++) { 
             $Db->update(array('position_article'=>$i),array('id_article = '.$value[$i]));
+        }
+
+        $this->_helper->layout->clearIdentity();
+        return $this->_helper->redirector('sort-sub-category','cms-admin','default');
+    }
+
+    public function saveSortedProductAction()
+    {
+        // action body
+        $Db = new Application_Model_DbTable_Product();
+
+        $val = explode('/',$_SERVER['REQUEST_URI']);
+        $val[3] = str_replace('&', '', $val[3]);
+        $value = explode('setProd[]=', $val[3]);
+
+        for ($i=1; $i < count($value); $i++) { 
+            $Db->update(array('position_product'=>$i),array('id_product = '.$value[$i]));
         }
 
         $this->_helper->layout->clearIdentity();
@@ -1022,6 +1044,8 @@ class CmsAdminController extends Zend_Controller_Action
 
 
 }
+
+
 
 
 
