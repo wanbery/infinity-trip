@@ -693,6 +693,7 @@ class CmsAdminController extends Zend_Controller_Action
         // action body
         $DbCategory = new Application_Model_DbTable_Category();
         $DbArticle = new Application_Model_DbTable_Article();
+        $DbProduct = Zend_Db_Table::getDefaultAdapter();
 
         $id = $this->getRequest()->getParams('id');
 
@@ -701,6 +702,10 @@ class CmsAdminController extends Zend_Controller_Action
 
         $selectArticle = $DbArticle->select()->where('id_category = ?',$id['id'])->order('position_article');
         $this->view->listArticle = $DbArticle->fetchAll($selectArticle);
+
+        $selectProduct = $DbProduct->select()->from('product')->joinInner('product_category','product_category.id_product = product.id_product')->where('product_category.id_category = ?',$id['id'])->order('product.position_product');
+        echo $selectProduct->__toString();
+        $this->view->listProduct = $DbProduct->fetchAll($selectProduct);
 
         $object = $DbCategory->find($id['id'])->current();
         $this->view->nameSortedCategory = $object->toArray();

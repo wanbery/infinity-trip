@@ -236,6 +236,55 @@ ul#sortableHelp li .actions a {
 	text-decoration: underline;
 }
 
+#sortableProd
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 60%;
+}
+
+#sortableProd li
+{
+	margin: 0 3px 3px 3px;
+	padding: 0.4em;
+	padding-left: 1.5em;
+	font-size: 1.4em;
+	height: 18px;
+	cursor: move;
+}
+
+#sortableProd li:hover
+{
+	border: 1px solid #0398ca;
+}
+
+#sortableProd li span 
+{
+	position: absolute;
+	margin-left: -1.3em;
+}
+
+ul#sortableProd li .actions {
+	font-weight: normal;
+	position: absolute;
+	right: 5px;
+	margin-right: 40%;
+}
+
+ul#sortableProd li .actions a {
+	margin-right: 5px;
+}
+
+#sortableProd li a
+{
+	color:#0398CA;
+}
+
+#sortableProd li a:hover
+{
+	text-decoration: underline;
+}
 .backgroundSortable
 {
 	 background-color:#EAE4D6;

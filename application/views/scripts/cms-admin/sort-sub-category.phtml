@@ -45,6 +45,31 @@ $('#sortableHelp').sortable({
 			} 
 		});
 </script>
+
+<h2 class="sortH2">Lista produktów w kategorii <?php echo $this->nameSortedCategory['name_category'] ?>:</h2>
+<hr />
+<div id="cat_sort_info_prod">
+	<ul id="sortableProd" class="backgroundSortable">
+		<?php
+			foreach ($this->listProduct as $products) {
+				?><li id="set-<?php echo $products['id_product'] ?>" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><?php echo $products['name_product'] ?>
+					<span class="actions"><a href="<?php echo $this->url(array('controller'=>'cms-admin','action'=>'product','id'=>$products['id_product']),'default',true) ?>">Edytuj</a><a href="<?php echo $this->url(array('controller'=>'index','action'=>'product','id_product'=>$products['id_product']),'default',true) ?>">Podgląd</a></span>
+				</li><?php
+			}
+		?>
+	</ul>
+</div>
+
+<script type="text/javascript">
+$('#sortableProd').sortable({
+			update : function () { 
+				var vieworder = $('#sortableProd').sortable('serialize'); 
+				$('#cat_sort_info_prod').load('/cms-admin/save-product/'+vieworder);
+				$('#cat_sort_info_prod').effect("pulsate", { times:3 }, 500);
+			} 
+		});
+</script>
+
 <div class="backStyle">
 	<ul>
 		<li class="btnBack" id="btnBack">
