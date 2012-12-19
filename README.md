@@ -20,3 +20,9 @@ or for class:<br/><strong>
 	        Cufon.replace(&#39;h1&#39;, { fontFamily: &#39;YOUR_FONT&#39; });<br/>
 	        Cufon.replace(&#39;.YOUR_CLASS&#39;, { fontFamily: &#39;YOUR_FONT&#39; });<br/>
 	&lsaquo;/script&rsaquo;<br/></strong>
+
+Git branches
+============
+
+-master
+-pagination
